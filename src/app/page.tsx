@@ -12,14 +12,14 @@ export default function Home() {
           HackFPMS
         </h1>
         <p className="text-xl md:text-2xl text-center text-muted-foreground mb-8 max-w-2xl">
-          We are FPMS's competitive hackathon team, turning ideas into winning projects.
+          We are FPMS&apos;s competitive hackathon team, turning ideas into winning projects.
         </p>
         <div className="flex gap-4">
           <Button size="lg" asChild>
-            <Link href="/team">Meet the Team</Link>
+            <Link href="/events/upcoming">Upcoming Events</Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <Link href="/events/upcoming">Upcoming Events</Link>
+            <Link href="/events/past">Past Events</Link>
           </Button>
         </div>
       </section>
