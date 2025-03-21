@@ -90,7 +90,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Want to Join Our Team?</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            We're always looking for passionate students who want to build amazing things and participate in hackathons.
+            We&apos;re always looking for passionate students who want to build amazing things and participate in hackathons.
           </p>
           <Button size="lg" asChild>
             <Link href="/contact">Get in Touch</Link>
