@@ -1,8 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
 
 export default function PastEventsPage() {
   return (
