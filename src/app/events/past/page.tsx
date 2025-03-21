@@ -210,8 +210,8 @@ export default function PastEventsPage() {
                   {/* Events for this year */}
                   <div className="space-y-12 mt-8">
                     {eventsByYear[year].map((event) => (
-                      <div key={event.id} className="grid grid-cols-2 gap-8">
-                        <div className="text-right pr-8 space-y-4">
+                      <div key={event.id} className="grid md:grid-cols-2 grid-cols-1 gap-8">
+                        <div className="md:text-right text-left md:pr-8 space-y-4">
                           <div>
                             <h3 className="font-semibold text-lg">{event.name}</h3>
                             <p className="text-sm text-muted-foreground">{event.date}</p>
@@ -230,8 +230,8 @@ export default function PastEventsPage() {
                             </div>
                           )}
                         </div>
-                        <div className="pl-8 relative">
-                          <div className="absolute w-4 h-4 bg-primary rounded-full left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-glow"></div>
+                        <div className="md:pl-8 relative">
+                          <div className="absolute w-4 h-4 bg-primary rounded-full left-0 md:block hidden top-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-glow"></div>
                           
                           <Card className="hover:shadow-lg transition-all">
                             <CardContent className="pt-4 pb-4">
@@ -262,7 +262,7 @@ export default function PastEventsPage() {
                                 {/* Bounties Section - Colorful Achievement Style */}
                                 {event.achievements.some(a => a.type === 'bounty') && (
                                   <div className="space-y-2">
-                                    <div className="grid grid-cols-2 gap-2">
+                                    <div className="grid sm:grid-cols-2 grid-cols-1 gap-2">
                                       {event.achievements
                                         .filter(a => a.type === 'bounty')
                                         .map((achievement, index) => {
