@@ -98,7 +98,7 @@ export default function Home() {
     let hIndex = 0;
     let vIndex = 0;
     
-    return pattern.map((item, index) => {
+    return pattern.map((item, _index) => {
       const image = item.type === 'h' 
         ? horizontalImages[hIndex++] 
         : verticalImages[vIndex++];
