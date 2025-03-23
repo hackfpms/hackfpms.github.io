@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
+import { Trophy, Users, Globe, Award, Medal } from "lucide-react"
 
 // Define a type for event data
 type Achievement = {
@@ -145,37 +146,82 @@ export default function PastEventsPage() {
     .map(Number)
     .sort((a, b) => b - a);
 
+  // Updated stats data with icons
+  const stats = [
+    { 
+      number: "15+", 
+      label: "Hackathons", 
+      icon: <Users className="h-8 w-8 mb-4 text-primary" />,
+      description: "Competitions attended"
+    },
+    { 
+      number: "2", 
+      label: "Finals", 
+      icon: <Trophy className="h-8 w-8 mb-4 text-primary" />,
+      description: "Top placements"
+    },
+    { 
+      number: "8", 
+      label: "Bounties", 
+      icon: <Award className="h-8 w-8 mb-4 text-primary" />,
+      description: "Special prizes"
+    },
+    { 
+      number: "6", 
+      label: "Countries", 
+      icon: <Globe className="h-8 w-8 mb-4 text-primary" />,
+      description: "International presence"
+    },
+  ]
+
   return (
     <main className="flex min-h-screen flex-col">
-      {/* Enhanced Hero Section */}
-      <section className="flex flex-col items-center justify-center min-h-[50vh] bg-gradient-to-b from-background to-secondary/20 px-4 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="relative z-10 text-center">
+      {/* Hero Section with Enhanced Stats */}
+      <section className="relative py-20 px-4">
+        <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Our Journey
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-6 max-w-2xl">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-16 max-w-2xl mx-auto">
             A timeline of our hackathon adventures and achievements
           </p>
-          {/* Quick stats */}
-          <div className="flex gap-8 justify-center mt-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">15+</div>
-              <div className="text-sm text-muted-foreground">Hackathons</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">8</div>
-              <div className="text-sm text-muted-foreground">Awards</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">6</div>
-              <div className="text-sm text-muted-foreground">Countries</div>
-            </div>
+          
+          {/* Enhanced Stats Grid - now 4 columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {stats.map((stat, index) => (
+              <Card 
+                key={index} 
+                className="relative overflow-hidden group hover:shadow-lg transition-all duration-300"
+              >
+                <CardContent className="p-6 text-center">
+                  {/* Decorative background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50" />
+                  
+                  {/* Content */}
+                  <div className="relative">
+                    {/* Icon */}
+                    <div className="flex justify-center">
+                      {stat.icon}
+                    </div>
+                    
+                    {/* Number */}
+                    <div className="text-4xl md:text-5xl font-bold text-primary mb-2 tracking-tight">
+                      {stat.number}
+                    </div>
+                    
+                    {/* Label */}
+                    <div className="text-base font-medium mb-1">
+                      {stat.label}
+                    </div>
+                    
+                    {/* Description */}
+                    <div className="text-sm text-muted-foreground">
+                      {stat.description}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
