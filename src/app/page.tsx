@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
-import { ArrowRight, Trophy, Users, Globe, Award, Calendar, MapPin, Clock } from "lucide-react"
+import { ArrowRight, Trophy, Users, Globe, Award, Calendar, Clock } from "lucide-react"
 import fs from 'fs';
 import path from 'path';
 
@@ -310,26 +310,57 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-semibold mb-8">Our Journey in Pictures</h2>
           
-          <div className="grid grid-cols-12 gap-4">
-            {galleryImages.map((image, index) => (
-              <div 
-                key={index}
-                className={`${image.span} relative rounded-lg overflow-hidden group`}
-              >
-                <div className={`${image.aspect} w-full`}>
-                  <Image
-                    src={image.src}
-                    alt={`Gallery image ${index + 1}`}
-                    fill
-                    className="object-cover transition-all duration-300 group-hover:scale-105"
-                  />
-                  
-                  {/* Subtle hover overlay */}
-                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {galleryImages.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {galleryImages.map((image, _index) => (
+                image && (
+                  <div 
+                    key={_index}
+                    className={`relative rounded-lg overflow-hidden group
+                      ${image.orientation === 'vertical' 
+                        ? 'row-span-2' 
+                        : 'col-span-1'
+                      }
+                    `}
+                  >
+                    <div className={`
+                      ${image.orientation === 'vertical' ? 'aspect-[3/4]' : 'aspect-[4/3]'}
+                      relative
+                    `}>
+                      <Image
+                        src={image.src}
+                        alt={`Gallery image ${_index + 1}`}
+                        fill
+                        className="object-cover transition-all duration-300 group-hover:scale-105"
+                      />
+                      
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                  </div>
+                )
+              ))}
+            </div>
+          ) : (
+            // Fallback when no images are found
+            <Card className="p-8 text-center">
+              <div className="flex flex-col items-center gap-4">
+                <Image 
+                  src="/images/placeholder.jpg" 
+                  alt="No images found"
+                  width={200}
+                  height={200}
+                  className="opacity-50"
+                />
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">No Images Available</h3>
+                  <p className="text-muted-foreground">
+                    Please add images to the public/images/horizontal and public/images/vertical directories.
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
+            </Card>
+          )}
         </div>
       </section>
     </main>
