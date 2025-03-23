@@ -87,18 +87,18 @@ export default function Home() {
   // Combine and arrange images in a pattern
   const arrangeGalleryImages = () => {
     const pattern = [
-      { type: 'h', span: 'col-span-8' }, // Large horizontal
-      { type: 'v', span: 'col-span-4' }, // Vertical
-      { type: 'v', span: 'col-span-4' }, // Vertical
-      { type: 'h', span: 'col-span-8' }, // Large horizontal
-      { type: 'h', span: 'col-span-6' }, // Medium horizontal
-      { type: 'h', span: 'col-span-6' }, // Medium horizontal
+      { type: 'h', span: 'col-span-8', aspect: 'aspect-[16/9]' }, // Large horizontal
+      { type: 'v', span: 'col-span-4', aspect: 'aspect-[3/4]' }, // Vertical
+      { type: 'v', span: 'col-span-4', aspect: 'aspect-[3/4]' }, // Vertical
+      { type: 'h', span: 'col-span-8', aspect: 'aspect-[16/9]' }, // Large horizontal
+      { type: 'h', span: 'col-span-6', aspect: 'aspect-[4/3]' }, // Medium horizontal
+      { type: 'h', span: 'col-span-6', aspect: 'aspect-[4/3]' }, // Medium horizontal
     ];
 
     let hIndex = 0;
     let vIndex = 0;
     
-    return pattern.map((item, _index) => {
+    return pattern.map((item) => {
       const image = item.type === 'h' 
         ? horizontalImages[hIndex++] 
         : verticalImages[vIndex++];
@@ -108,7 +108,7 @@ export default function Home() {
       return {
         ...image,
         span: item.span,
-        aspect: item.type === 'h' ? 'aspect-[16/9]' : 'aspect-[3/4]'
+        aspect: item.aspect
       };
     }).filter(Boolean);
   };
@@ -311,31 +311,23 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-8">Our Journey in Pictures</h2>
           
           {galleryImages.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {galleryImages.map((image, _index) => (
+            <div className="grid grid-cols-12 gap-4">
+              {galleryImages.map((image, i) => (
                 image && (
                   <div 
-                    key={_index}
-                    className={`relative rounded-lg overflow-hidden group
-                      ${image.orientation === 'vertical' 
-                        ? 'row-span-2' 
-                        : 'col-span-1'
-                      }
-                    `}
+                    key={i}
+                    className={`${image.span} relative rounded-lg overflow-hidden group`}
                   >
-                    <div className={`
-                      ${image.orientation === 'vertical' ? 'aspect-[3/4]' : 'aspect-[4/3]'}
-                      relative
-                    `}>
+                    <div className={`${image.aspect} w-full`}>
                       <Image
                         src={image.src}
-                        alt={`Gallery image ${_index + 1}`}
+                        alt={`Gallery image ${i + 1}`}
                         fill
                         className="object-cover transition-all duration-300 group-hover:scale-105"
                       />
                       
-                      {/* Hover overlay */}
-                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      {/* Hover overlay with gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                   </div>
                 )
