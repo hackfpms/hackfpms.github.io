@@ -26,10 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background relative`}
       >
+        {/* Subtle texture overlay */}
+        <div className="fixed inset-0 bg-[url('/noise.png')] opacity-[0.015] pointer-events-none" />
         <Navbar />
-        <div className="pt-16">
+        <div className="pt-16 relative">
           {children}
         </div>
       </body>
