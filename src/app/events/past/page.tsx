@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Trophy, Users, Globe, Award } from "lucide-react"
 import Image from "next/image"
-import { Trophy, Users, Globe, Award, Medal } from "lucide-react"
 
 // Define a type for event data
 type Achievement = {
