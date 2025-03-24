@@ -37,8 +37,8 @@ export default function ContactPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-semibold mb-4">Meet the HackFPMS Team</h2>
           <p className="text-muted-foreground">
-            We're a group of passionate students from FPMS, dedicated to fostering innovation 
-            and collaboration through hackathons. Whether you're interested in participating 
+            We're a group of passionate students from FPMS, dedicated to fostering innovation
+            and collaboration through hackathons. Whether you're interested in participating
             in our next event or just want to learn more about what we do, we'd love to hear from you!
           </p>
         </div>
@@ -88,13 +88,6 @@ export default function ContactPage() {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Quick Message */}
-            <div className="text-center mt-8">
-              <p className="text-muted-foreground">
-                We typically respond within 24 hours during weekdays.
-              </p>
-            </div>
           </div>
         </div>
       </section>

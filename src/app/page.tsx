@@ -67,7 +67,7 @@ export default function Home() {
     location: "Amsterdam, Netherlands",
     image: "/images/ethdam.jpg",
     description: "Join us at EthDam a Blockchain Hackathon focussing mainly in AI, Privacy, and Security",
-    prizes: ["$5000 in Total Prizes", "Company Sponsor Bounties", "Swag and Goodies"],
+    prizes: ["$20000+ in Total Prizes", "Company Sponsor Bounties", "Swag and Goodies"],
     link: "/events/upcoming"
   }
 
