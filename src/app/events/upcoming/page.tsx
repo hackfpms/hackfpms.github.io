@@ -1,62 +1,84 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, Users, Link as LinkIcon } from "lucide-react"
-import Link from "next/link"
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Calendar, MapPin, Users, Link as LinkIcon } from "lucide-react";
+import Link from "next/link";
 
 type UpcomingEvent = {
-  name: string
-  date: string
+  name: string;
+  date: string;
   location: {
-    city: string
-    country: string
-    venue?: string
-  }
-  status: 'planning' | 'confirmed' | 'registration-open'
-  description: string
+    city: string;
+    country: string;
+    venue?: string;
+  };
+  status: "planning" | "confirmed" | "registration-open";
+  description: string;
   registrationInfo: {
-    opens?: string
-    teamSize: string
-  }
-  prizes?: string
-  website: string
-}
+    opens?: string;
+    teamSize: string;
+  };
+  prizes?: string;
+  website: string;
+  image: string; // Added image property
+};
 
 const upcomingEvents: UpcomingEvent[] = [
   {
-    name: "Junction 2024",
-    date: "November 15-17, 2024",
+    name: "ETHDam",
+    date: "May 9-11, 2025",
     location: {
-      city: "Helsinki",
-      country: "Finland",
-      venue: "Aalto University"
+      city: "Amsterdam",
+      country: "Netherlands",
+      venue: "Pakhuis de Zwijger",
     },
     status: "planning",
-    description: "Europe's largest hackathon, bringing together over 1000 developers. Join us for an unforgettable weekend of innovation, coding, and collaboration.",
+    description:
+      "Bringing together the best Privacy, Security & AI builders in crypto for a 48-hour hackathon and conference combo.",
     registrationInfo: {
-      opens: "July 2024",
+      opens: "Now",
       teamSize: "4-5",
     },
     prizes: "€20,000+",
-    website: "https://junction.hack/"
+    website: "https://www.ethdam.com/",
+    image: "/images/ethdam.jpg",
   },
   {
-    name: "ETH Global London",
-    date: "March 15-17, 2024",
+    name: "ETH Global Prague",
+    date: "May 30 - June 1, 2025",
     location: {
-      city: "London",
-      country: "United Kingdom"
+      city: "Prague",
+      country: "Czech Republic",
     },
-    status: "confirmed",
-    description: "One of the largest Ethereum hackathons in Europe. Build the future of Web3 with developers from around the world.",
+    status: "planning",
+    description:
+      "One of the largest Ethereum hackathons in Europe. Build the future of Web3 with developers from around the world.",
     registrationInfo: {
-      teamSize: "2-4",
+      teamSize: "3-5",
     },
-    prizes: "£50,000+",
-    website: "https://ethglobal.com/"
-  }
-  // Add more events as needed
-]
+    prizes: "£175,000+",
+    website: "https://ethglobal.com/events/prague",
+    image: "/images/ethprague.jpg",
+  },
+  {
+    name: "ETH Global Cannes",
+    date: "July 4-6, 2025",
+    location: {
+      city: "Cannes",
+      country: "France",
+      venue: "Palais des Festivals et des Congrès",
+    },
+    status: "planning",
+    description:
+      "Join us in the French Riviera for a 48-hour hackathon and conference combo. Build the future of Web3 with developers from around the world.",
+    registrationInfo: {
+      teamSize: "3-5",
+    },
+    prizes: "£275,000+",
+    website: "https://ethglobal.com/events/cannes",
+    image: "/images/ethcannes.jpg",
+  },
+];
 
 export default function UpcomingEventsPage() {
   return (
@@ -77,16 +99,32 @@ export default function UpcomingEventsPage() {
               <Card key={index} className="group hover:shadow-md transition-shadow">
                 <CardContent className="p-4">
                   <div className="flex flex-col md:flex-row gap-6">
-                    {/* Left side - Main info */}
+                    {/* Event Image */}
+                    <img
+                      src={event.image}
+                      alt={event.name}
+                      className="w-full md:w-48 h-32 object-cover rounded-md"
+                    />
+
+                    {/* Event Details */}
                     <div className="flex-1">
                       <div className="flex items-start justify-between mb-2">
                         <h3 className="text-xl font-semibold">{event.name}</h3>
-                        <Badge variant={
-                          event.status === 'registration-open' ? 'default' :
-                          event.status === 'confirmed' ? 'secondary' : 'outline'
-                        } className="ml-2">
-                          {event.status === 'registration-open' ? 'Registration Open' :
-                           event.status === 'confirmed' ? 'Confirmed' : 'Planning'}
+                        <Badge
+                          variant={
+                            event.status === "registration-open"
+                              ? "default"
+                              : event.status === "confirmed"
+                              ? "secondary"
+                              : "outline"
+                          }
+                          className="ml-2"
+                        >
+                          {event.status === "registration-open"
+                            ? "Registration Open"
+                            : event.status === "confirmed"
+                            ? "Confirmed"
+                            : "Planning"}
                         </Badge>
                       </div>
 
@@ -116,18 +154,19 @@ export default function UpcomingEventsPage() {
                       </p>
                     </div>
 
-                    {/* Right side - Simplified */}
+                    {/* Registration Link */}
                     <div className="md:w-48 flex flex-col justify-between">
                       <div className="text-sm">
                         <p className="text-muted-foreground">
-                          Registration {event.registrationInfo.opens ? 
-                            `opens ${event.registrationInfo.opens}` : 'TBA'}
+                          Registration {event.registrationInfo.opens
+                            ? `opens ${event.registrationInfo.opens}`
+                            : "TBA"}
                         </p>
                       </div>
-                      
-                      <Link 
-                        href={event.website} 
-                        target="_blank" 
+
+                      <Link
+                        href={event.website}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="mt-4"
                       >
@@ -145,5 +184,5 @@ export default function UpcomingEventsPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }
