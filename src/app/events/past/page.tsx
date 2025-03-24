@@ -148,27 +148,27 @@ export default function PastEventsPage() {
 
   // Updated stats data with icons
   const stats = [
-    { 
-      number: "15+", 
-      label: "Hackathons", 
+    {
+      number: "15+",
+      label: "Hackathons",
       icon: <Users className="h-8 w-8 mb-4 text-primary" />,
       description: "Competitions attended"
     },
-    { 
-      number: "2", 
-      label: "Finals", 
+    {
+      number: "2",
+      label: "Finals",
       icon: <Trophy className="h-8 w-8 mb-4 text-primary" />,
       description: "Top placements"
     },
-    { 
-      number: "8", 
-      label: "Bounties", 
+    {
+      number: "8",
+      label: "Bounties",
       icon: <Award className="h-8 w-8 mb-4 text-primary" />,
       description: "Special prizes"
     },
-    { 
-      number: "6", 
-      label: "Countries", 
+    {
+      number: "8",
+      label: "Countries",
       icon: <Globe className="h-8 w-8 mb-4 text-primary" />,
       description: "International presence"
     },
@@ -185,35 +185,35 @@ export default function PastEventsPage() {
           <p className="text-xl md:text-2xl text-muted-foreground mb-16 max-w-2xl mx-auto">
             A timeline of our hackathon adventures and achievements
           </p>
-          
+
           {/* Enhanced Stats Grid - now 4 columns */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {stats.map((stat, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="relative overflow-hidden group hover:shadow-lg transition-all duration-300"
               >
                 <CardContent className="p-6 text-center">
                   {/* Decorative background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50" />
-                  
+
                   {/* Content */}
                   <div className="relative">
                     {/* Icon */}
                     <div className="flex justify-center">
                       {stat.icon}
                     </div>
-                    
+
                     {/* Number */}
                     <div className="text-4xl md:text-5xl font-bold text-primary mb-2 tracking-tight">
                       {stat.number}
                     </div>
-                    
+
                     {/* Label */}
                     <div className="text-base font-medium mb-1">
                       {stat.label}
                     </div>
-                    
+
                     {/* Description */}
                     <div className="text-sm text-muted-foreground">
                       {stat.description}
@@ -278,7 +278,7 @@ export default function PastEventsPage() {
                         </div>
                         <div className="md:pl-8 relative">
                           <div className="absolute w-4 h-4 bg-primary rounded-full left-0 md:block hidden top-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-glow"></div>
-                          
+
                           <Card className="hover:shadow-lg transition-all">
                             <CardContent className="pt-4 pb-4">
                               <div className="space-y-4">
@@ -321,7 +321,7 @@ export default function PastEventsPage() {
                                           const colorScheme = colorSchemes[index % colorSchemes.length];
 
                                           return (
-                                            <div 
+                                            <div
                                               key={index}
                                               className={`relative group rounded-lg p-2.5 border bg-gradient-to-br ${colorScheme} transition-all hover:scale-[1.02]`}
                                             >

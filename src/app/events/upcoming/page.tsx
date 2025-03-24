@@ -41,7 +41,7 @@ const upcomingEvents: UpcomingEvent[] = [
     },
     prizes: "€20,000+",
     website: "https://www.ethdam.com/",
-    image: "/images/ethdam.jpg",
+    image: "../images/ethdam.jpg",
   },
   {
     name: "ETH Global Prague",
@@ -58,7 +58,7 @@ const upcomingEvents: UpcomingEvent[] = [
     },
     prizes: "£175,000+",
     website: "https://ethglobal.com/events/prague",
-    image: "/images/ethprague.jpg",
+    image: "../images/ethprague.jpg",
   },
   {
     name: "ETH Global Cannes",
@@ -76,7 +76,7 @@ const upcomingEvents: UpcomingEvent[] = [
     },
     prizes: "£275,000+",
     website: "https://ethglobal.com/events/cannes",
-    image: "/images/ethcannes.jpg",
+    image: "../images/ethcannes.jpg",
   },
 ];
 
