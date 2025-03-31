@@ -31,29 +31,29 @@ function getImagesFromDirectory(orientation: 'horizontal' | 'vertical'): Gallery
 }
 
 export default function Home() {
-  // Stats data with icons
+  // Updated Stats data
   const stats = [
-    {
-      number: "50+",
-      label: "Hackers",
+    { 
+      number: "5", // Updated from 50+
+      label: "Hackers", 
       icon: <Users className="h-8 w-8 mb-4 text-primary" />,
       description: "Active members"
     },
-    {
-      number: "$25K+",
-      label: "In Prizes",
+    { 
+      number: "$25K+", 
+      label: "In Prizes", 
       icon: <Trophy className="h-8 w-8 mb-4 text-primary" />,
       description: "Total winnings"
     },
-    {
-      number: "15+",
-      label: "Hackathons",
+    { 
+      number: "10+", // Updated from 15+
+      label: "Hackathons", 
       icon: <Award className="h-8 w-8 mb-4 text-primary" />,
       description: "Competitions attended"
     },
-    {
-      number: "8",
-      label: "Countries",
+    { 
+      number: "8", 
+      label: "Countries", 
       icon: <Globe className="h-8 w-8 mb-4 text-primary" />,
       description: "International presence"
     },
