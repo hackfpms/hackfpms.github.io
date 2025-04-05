@@ -6,6 +6,8 @@ import Image from "next/image"
 import { ArrowRight, Trophy, Users, Globe, Award, Calendar, Clock } from "lucide-react"
 import fs from 'fs';
 import path from 'path';
+import dynamic from 'next/dynamic'
+import MapSection from "@/components/map-section"
 
 // New type for gallery images
 type GalleryImage = {
@@ -304,6 +306,9 @@ export default function Home() {
           </Card>
         </div>
       </section>
+
+      {/* Add the MapSection before the Photo Gallery section */}
+      <MapSection />
 
       {/* Photo Gallery Section */}
       <section className="py-16 px-4 bg-secondary/30">
